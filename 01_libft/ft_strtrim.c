@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 18:04:10 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/09 18:32:34 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/09 20:08:18 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	s_s1 = (char *)s1;
 	e_s1 = (char *)s1 + ft_strlen(s1) - 1;
-	is_include(&s_s1, (char *)set, 1);
+	is_here(&s_s1, (char *)set, 1);
 	if (!*s_s1)
 		return (ft_strdup(""));
-	is_include(&e_s1, (char *)set, -1);
+	is_here(&e_s1, (char *)set, -1);
 	len = ft_strlen(s_s1) - ft_strlen(e_s1) + 2;
-	str = malloc(len);
+	str = (char *)malloc(len);
 	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s_s1, len);
