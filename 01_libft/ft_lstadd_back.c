@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 14:57:13 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/17 20:00:11 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/07/17 16:10:07 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/07/17 21:08:08 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcat(char *dest, const char *src, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t		result;
-	size_t		i;
-	size_t		j;
-
-	i = 0;
-	j = 0;
-	result = 0;
-	while (dest[i])
-		i++;
-	while (src[result])
-		result++;
-	if (size <= i)
-		result += size;
+	if (*lst == 0)
+		*lst = new;
 	else
-		result += i;
-	while (src[j] && (i + 1) < size)
-	{
-		dest[i] = src[j];
-		j++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (result);
+		ft_lstlast(*lst)->next = new;
 }

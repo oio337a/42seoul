@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:54:25 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/08 21:18:38 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/17 21:47:31 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	char	*temp;
+	size_t	tmp_len;
 
-	temp = (char *)dest;
-	if (!dest && !src)
-		return (NULL);
-	if (dest > src && src + len > dest)
+	if (dest == src || len == 0)
+		return (dest);
+	if (dest > src)
 	{
-		temp += len;
-		src += len;
+		dest = (unsigned char *)dest + len - 1;
+		src = (unsigned char *)src + len - 1;
 		while (len--)
-			*--temp = *(char *)--src;
+			*(unsigned char *)dest-- = *(unsigned char *)src--;
+		return (dest + 1);
 	}
 	else
+	{
+		tmp_len = len;
 		while (len--)
-			*temp = *(char *)src++;
-	return (dest);
+			*(unsigned char *)dest++ = *(unsigned char *)src++;
+		return (dest - tmp_len);
+	}
 }

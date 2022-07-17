@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:15:29 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/04 19:34:57 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/17 20:03:18 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isprint(int value)
 {
-	return (value <= 32 && value <= 126);
+	return (32 <= value && value <= 126);
 }

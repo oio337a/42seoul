@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:25:45 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/07 15:07:59 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/17 19:59:56 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	cnt;
-	int		i;
+	size_t	i;
 
 	cnt = 0;
 	while (src[cnt])

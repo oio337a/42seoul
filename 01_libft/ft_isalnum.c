@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:52:59 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/04 19:34:18 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/17 20:01:04 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalnum(int value)
 {
-	return (('a' <= value && value <= 'z')
-		|| ('A' <= value && value <= 'Z')
-		|| ('0' <= value <= '9'));
+	if (ft_isalpha(value) || ft_isdigit(value))
+		return (1);
+	return (0);
 }

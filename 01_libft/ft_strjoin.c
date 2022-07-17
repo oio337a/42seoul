@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:54:46 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/09 18:02:58 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/17 18:38:21 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	if (!s1 || !s2)
-		return (NULL);
 	str = (char *)malloc(s1_len + s2_len + 1);
 	if (!str)
 		return (NULL);

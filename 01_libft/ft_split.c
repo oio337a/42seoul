@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 20:19:10 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/09 21:12:38 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/17 18:35:39 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,10 @@ static void	*free_answer(char **answer, size_t index)
 	i = 0;
 	while (i < index)
 	{
-		free(answer[index]);
-		answer[i++] = NULL;
+		free(answer[i]);
+		i++;
 	}
 	free(answer);
-	answer = NULL;
 	return (NULL);
 }
 
@@ -63,8 +62,6 @@ char	**ft_split(char const *s, char c)
 	size_t	alloc_cnt;
 	size_t	index;
 
-	if (!s)
-		return (NULL);
 	index = 0;
 	arr_cnt = arr_size(s, c);
 	answer = (char **)malloc(sizeof(char *) * (arr_cnt + 1));
