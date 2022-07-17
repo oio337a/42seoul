@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 22:01:30 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/16 19:04:20 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/07/16 22:03:13 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/07/16 22:06:21 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
+	int		i;
+	t_list	*temp;
 
-	if (!needle)
-		return ((char *) haystack);
-	while (len-- && *haystack)
+	i = 0;
+	temp = lst;
+	while (temp)
 	{
-		i = 0;
-		while (*(haystack + i) == *(needle + i) && i < len)
-		{
-			i++;
-			if (*(needle + i) == '\0')
-				return ((char *) haystack);
-		}
-		haystack++;
+		temp = temp -> next;
+		i++;
 	}
-	return (0);
+	return (i);
 }
