@@ -6,25 +6,21 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:13 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/17 20:00:11 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/18 15:54:44 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t		result;
 	size_t		i;
 	size_t		j;
 
-	i = 0;
+	result = ft_strlen(src);
+	i = ft_strlen(dest);
 	j = 0;
-	result = 0;
-	while (dest[i])
-		i++;
-	while (src[result])
-		result++;
 	if (size <= i)
 		result += size;
 	else
