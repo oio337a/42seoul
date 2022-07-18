@@ -6,7 +6,7 @@
 #    By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/17 19:56:17 by yongmipa          #+#    #+#              #
-#    Updated: 2022/07/17 22:48:46 by yongmipa         ###   ########seoul.kr   #
+#    Updated: 2022/07/18 17:26:49 by yongmipa         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ all : $(NAME)
 $(NAME) : $(OBJ_FILES)
 	ar rcs $@ $^
 bonus :
-	sleep 1
 	make WITH_BONUS=1 all
 clean : 
 	rm -f $(OBJS) $(BOBJS)
