@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 15:42:48 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/19 20:15:48 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/19 20:19:43 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int				i;
-	int				sign;
-	long long		result;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
 	sign = 1;
