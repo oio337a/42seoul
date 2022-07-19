@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:21:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/17 19:59:04 by yongmipa         ###   ########.fr       */
+/*   Updated: 2022/07/19 19:17:23 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *src)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src[i])
