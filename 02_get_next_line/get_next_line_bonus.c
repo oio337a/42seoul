@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 17:12:03 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/25 22:41:40 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/07/25 22:45:54 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/07/25 22:51:34 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static	char	*ft_free(char *ptr)
 {
@@ -89,22 +89,22 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	char		*temp;
 	char		*line;
-	static char	*backup;
+	static char	*backup[OPEN_MAX];
 
-	if (BUFFER_SIZE < 1)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
 	buffer = (char *) malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	if (!backup)
+	if (!backup[fd])
 	{
-		backup = ft_strdup("");
-		if (!backup)
+		backup[fd] = ft_strdup("");
+		if (!backup[fd])
 			return (ft_free(buffer));
 	}
-	temp = read_line(fd, buffer, backup);
+	temp = read_line(fd, buffer, backup[fd]);
 	free(buffer);
 	line = substr_one_line(temp);
-	backup = substr_backup(temp, &line);
+	backup[fd] = substr_backup(temp, &line);
 	return (line);
 }

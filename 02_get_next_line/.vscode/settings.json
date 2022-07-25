@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"unistd.h": "c",
+		"limits.h": "c",
+		"get_next_line_bonus.h": "c"
+	}
+}
