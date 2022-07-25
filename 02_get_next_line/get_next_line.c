@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:12:03 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/25 18:47:44 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/25 22:11:39 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,61 @@ static char	*read_line(int fd, char *buffer, char *backup)
 	while (read_size)
 	{
 		read_size = read(fd, buffer, BUFFER_SIZE);
+		if (read_size == 0)
+			break ;
+		if (read_size == -1)
+			return (ft_free(backup));
+		buffer[read_size] = '\0';
+		temp = backup;
+		backup = ft_strjoin(backup, buffer);
+		free(temp);
+		if (!backup)
+			return (NULL);
+		if (ft_strchr(backup, '\n'))
+			break ;
 	}
-	
+	return (backup);
+}
+
+static char	*substr_one_line(char *temp)
+{
+	char	*line;
+	int		i;
+
+	if (temp == NULL)
+		return (NULL);
+	if (temp[0] == '\0')
+		return (NULL);
+	i = 0;
+	while (temp[i] != '\n' && temp[i] != '\0')
+		i++;
+	line = ft_substr(temp, 0, i + 1);
+	return (line);
+}
+
+static char	*substr_backup(char *temp, char **line)
+{
+	char	*backup;
+	int		i;
+
+	if (temp == NULL)
+		return (NULL);
+	if (temp[0] == '\0')
+		return (ft_free(temp));
+	i = 0;
+	while (temp[i] != '\n' && temp]i + 1] != '\0')
+		i++;
+	if (temp[i] == '\0' || temp[i + 1] == '\0')
+		return (ft_free(temp));
+	backup = ft_substr(temp, i + 1, ft_strlen(temp) - i - 1);
+	if (!backup)
+	{
+		free(*line);
+		*line = NULL;
+		return (ft_free(temp));
+	}
+	free(temp);
+	return (backup);
 }
 
 char	*get_next_line(int fd)
