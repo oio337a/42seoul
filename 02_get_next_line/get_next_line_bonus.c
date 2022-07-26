@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:45:54 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/26 16:41:26 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/26 20:05:31 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static char	*substr_backup(char *temp, char **line)
 	i = 0;
 	while (temp[i] != '\n' && temp[i] != '\0')
 		i++;
-	if (temp[i] == '\0' || temp[i + 1] == '\0')
+	if (temp[i] == '\0')
 		return (ft_free(temp));
 	backup = ft_substr(temp, i + 1, ft_strlen(temp) - i - 1);
 	if (!backup)
