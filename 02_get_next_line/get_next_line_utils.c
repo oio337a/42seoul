@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:12:16 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/25 22:32:07 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/26 16:30:40 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ char	*ft_strdup(const char *src)
 	size_t	src_len;
 
 	src_len = ft_strlen(src);
-	str = (char *)malloc(src_len + 1);
+	str = (char *) malloc(sizeof(char) * (src_len + 1));
 	if (!str)
 		return (NULL);
-	while (*str)
+	while (*src)
 		*str++ = *src++;
 	*str = '\0';
 	return (str - src_len);
@@ -41,11 +41,11 @@ char	*ft_strchr(const char *str, int c)
 {
 	while (*str != '\0')
 	{
-		if (*str == (char)c)
-			return ((char *)str);
+		if (*str == (char) c)
+			return ((char *) str);
 		str++;
 	}
-	if ((char)c == '\0')
+	if ((char) c == '\0')
 		return ((char *) str);
 	return (NULL);
 }
@@ -56,14 +56,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	str_len;
 
 	str_len = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(str_len + 1);
+	str = (char *) malloc(str_len + 1);
 	if (!str)
 		return (NULL);
 	while (*s1 != '\0')
 		*str++ = *s1++;
 	while (*s2 != '\0')
 		*str++ = *s2++;
-	*str = '0';
+	*str = '\0';
 	return (str - str_len);
 }
 
