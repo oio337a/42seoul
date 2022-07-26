@@ -6,15 +6,15 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:12:03 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/25 22:41:40 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/26 19:01:31 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static	char	*ft_free(char *ptr)
+static	char	*ft_free(char *str)
 {
-	free(ptr);
+	free(str);
 	return (NULL);
 }
 
@@ -48,9 +48,7 @@ static char	*substr_one_line(char *temp)
 	char	*line;
 	int		i;
 
-	if (temp == NULL)
-		return (NULL);
-	if (temp[0] == '\0')
+	if (temp == NULL || temp[0] == '\0')
 		return (NULL);
 	i = 0;
 	while (temp[i] != '\n' && temp[i] != '\0')
@@ -71,7 +69,7 @@ static char	*substr_backup(char *temp, char **line)
 	i = 0;
 	while (temp[i] != '\n' && temp[i] != '\0')
 		i++;
-	if (temp[i] == '\0' || temp[i + 1] == '\0')
+	if (temp[i] == '\0')
 		return (ft_free(temp));
 	backup = ft_substr(temp, i + 1, ft_strlen(temp) - i - 1);
 	if (!backup)
@@ -93,7 +91,7 @@ char	*get_next_line(int fd)
 
 	if (BUFFER_SIZE < 1)
 		return (NULL);
-	buffer = (char *) malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buffer = (char *) malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	if (!backup)

@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:45:54 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/25 22:51:34 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/26 16:41:26 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE < 1)
 		return (NULL);
-	buffer = (char *) malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buffer = (char *) malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	if (!backup[fd])

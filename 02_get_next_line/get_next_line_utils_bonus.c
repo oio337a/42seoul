@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:46:19 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/26 16:33:00 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/26 16:37:37 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strdup(const char *src)
 	size_t	src_len;
 
 	src_len = ft_strlen(src);
-	str = (char *) malloc(sizeof(char) * (src_len + 1));
+	str = (char *) malloc(src_len + 1);
 	if (!str)
 		return (NULL);
 	while (*src)
@@ -76,7 +76,7 @@ char	*ft_substr(char const *src, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (ft_strlen(src) < start + len)
 		len = ft_strlen(src) - start;
-	str = (char *) malloc(sizeof(char) * (len + 1));
+	str = (char *) malloc(len + 1);
 	if (!str)
 		return (NULL);
 	src += start;
