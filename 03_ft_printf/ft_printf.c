@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:15:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/29 16:46:44 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/31 17:04:01 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,11 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (count);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	
 }
