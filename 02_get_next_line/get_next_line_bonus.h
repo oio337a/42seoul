@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:46:07 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/25 22:49:29 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/31 14:59:42 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);

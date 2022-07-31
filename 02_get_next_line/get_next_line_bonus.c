@@ -6,11 +6,12 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:45:54 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/26 20:05:31 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/31 15:00:04 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+#include <limits.h>
 
 static	char	*ft_free(char *ptr)
 {
