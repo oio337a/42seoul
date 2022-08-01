@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:16:03 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/31 18:06:22 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/08/01 16:11:13 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int	ft_putchar(char str);
+int	ft_printf(const char *str, ...);
+
+int	printf_hex(unsigned long long num, char *hex, int count);
+
+int	ft_putchar(char c);
 int	ft_putstr(char *str);
 int	ft_putnbr(int n);
 int	ft_unsignednbr(unsigned int nbr);

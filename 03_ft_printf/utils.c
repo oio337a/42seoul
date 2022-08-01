@@ -6,15 +6,15 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:58:27 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/31 18:21:20 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/08/01 16:11:22 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char str)
+int	ft_putchar(char c)
 {
-	return (write(1, &str, 1));
+	return (write(1, &c, 1));
 }
 
 int	ft_putstr(char *str)

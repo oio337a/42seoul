@@ -6,17 +6,17 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:15:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/31 18:21:21 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/08/01 16:44:27 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_hex(unsigned long long num, char *hex, int count)
+int	printf_hex(unsigned long long num, char *hex, int count)
 {
 	if (num >= 16)
 	{
-		count = print_hex(num / 16, hex, count + 1);
+		count = printf_hex(num / 16, hex, count + 1);
 		num %= 16;
 	}
 	ft_putchar(hex[num]);
@@ -26,15 +26,15 @@ int	print_hex(unsigned long long num, char *hex, int count)
 int	form_p(void *addr, char *hex)
 {
 	ft_putstr("0x");
-	return (print_hex((long long)addr, hex, 1) + 2);
+	return (printf_hex((long long)addr, hex, 1) + 2);
 }
 
 int	form_x(unsigned int num, char form)
 {
 	if (form == 'x')
-		return (print_hex(num, "0123456789abcdef", 1));
+		return (printf_hex(num, "0123456789abcdef", 1));
 	else
-		return (print_hex(num, "0123456789ABCDEF", 1));
+		return (printf_hex(num, "0123456789ABCDEF", 1));
 }
 
 int	parsing(char form, va_list ap)
