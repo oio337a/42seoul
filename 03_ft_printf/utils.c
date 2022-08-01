@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:58:27 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/29 18:45:25 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/31 18:21:20 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_putchar(char str)
 {
-	write(1, &str, 1);
-	return (1);
+	return (write(1, &str, 1));
 }
 
 int	ft_putstr(char *str)
@@ -61,4 +60,9 @@ int	ft_putnbr(int n)
 		++count;
 	}
 	return (ft_nbrrec(num, count));
+}
+
+int	ft_unsignednbr(unsigned int nbr)
+{
+	return (ft_nbrrec(nbr, 1));
 }

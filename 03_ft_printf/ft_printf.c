@@ -6,11 +6,36 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:15:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/31 17:04:01 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/07/31 18:21:21 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	print_hex(unsigned long long num, char *hex, int count)
+{
+	if (num >= 16)
+	{
+		count = print_hex(num / 16, hex, count + 1);
+		num %= 16;
+	}
+	ft_putchar(hex[num]);
+	return (count);
+}
+
+int	form_p(void *addr, char *hex)
+{
+	ft_putstr("0x");
+	return (print_hex((long long)addr, hex, 1) + 2);
+}
+
+int	form_x(unsigned int num, char form)
+{
+	if (form == 'x')
+		return (print_hex(num, "0123456789abcdef", 1));
+	else
+		return (print_hex(num, "0123456789ABCDEF", 1));
+}
 
 int	parsing(char form, va_list ap)
 {
@@ -21,17 +46,17 @@ int	parsing(char form, va_list ap)
 	else if (form == 's')
 		count = ft_putstr(va_arg(ap, char *));
 	else if (form == 'p')
-		count = pprocessor(va_arg(ap, void *), "0123456789abcdef");
+		count = form_p(va_arg(ap, void *), "0123456789abcdef");
 	else if (form == 'd' || form == 'i')
 		count = ft_putnbr(va_arg(ap, int));
 	else if (form == 'u')
-		count = ft_putunsignednbr(va_arg(ap, int));
+		count = ft_unsignednbr(va_arg(ap, int));
 	else if (form == 'x' || form == 'X')
-		count = xprocessor(va_arg(ap, unsigned int), form);
+		count = form_x(va_arg(ap, unsigned int), form);
 	else if (form == '%')
 		count = ft_putchar('%');
 	else
-		count = -1;
+		count = 0;
 	return (count);
 }
 
@@ -51,7 +76,7 @@ int	ft_printf(const char *str, ...)
 		{
 			temp = parsing(str[++idx], ap);
 			if (temp < 0)
-				return (0);
+				return (-1);
 			count += temp;
 		}
 		else
@@ -62,11 +87,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (count);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	
 }
