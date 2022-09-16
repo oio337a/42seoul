@@ -8,5 +8,7 @@
 C
 ## 학습내용
 - `static` 변수
-- read, open, close 함수
-
+- fd(File Descriptor)가 무엇이고, 어떻게 사용할 수 있는가 read, open 함수
+- 배열과 연결리스트의 차이와 장단점
+- leaks 관리
+- EOF의 의미와 사용
