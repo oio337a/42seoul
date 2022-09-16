@@ -7,6 +7,6 @@
 ## 사용 언어
 C
 ## 학습내용
-`static` 변수
-read, open, close 함수
+- `static` 변수
+- read, open, close 함수
 
