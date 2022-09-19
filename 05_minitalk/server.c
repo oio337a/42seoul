@@ -6,13 +6,28 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:32:48 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/19 16:01:52 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/19 22:28:22 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./server.h"
 
 t_request	g_request;
+
+void	ft_receive_connection(int signum, siginfo_t *siginfo, void *context)
+{
+	(void)signum;
+	(void)context;
+	if (g_request.clipid == 0)
+	{
+		g_request.clipid = siginfo->si_pid;
+		sigaction(SIGUSR2, &g_request.phase_read_msglen, NULL);
+		sigaction(SIGUSR1, &g_request.phase_read_msglen, NULL);
+		ft_handshake_req(g_request.clipid);
+	}
+	else if (g_request.clipid)
+		ft_handshake_wait(g_request.clipid);
+}
 
 void	struct_init(void)
 {
