@@ -1,56 +1,20 @@
-# 42Seoul에서 사용할 라이브러리를 만드는 과제입니다.
+# 가상머신과 서버 입문
 ---
-이 과제는 c언어 라이브러리를 직접 만들어서 내부 동작을 파악하거나, 기본적인 C언어 지식을 얻기 위해 만들어졌습니다.
-추가적으로 이후 과제에서 개인적으로 필요한 라이브러리나 추가기능이 필요할때마다 업데이트하게 됩니다.
+이 과제는 깡통 가상머신을 구축하고 요구하는 사항을 셋업하여야 하는 과제입니다.
 ## 사용 언어
-C
+NONE
 ## 학습내용
-C언어 기본기 (헤더파일, Makefile, 포인터, 메모리 할당 및 해제, 예외처리, 구조체 등)
-C언어 라이브러리의 구조 및 종류에 따른 사용법
-링크드 리스트 구현
-## C언어 라이브러리 구현 내용
-atoi.c
-bzero.c
-calloc.c
-free.c
-isalnum.c
-isalpha.c
-isascii.c
-isdigit.c
-isprint.c
-itoa.c
-memccpy.c
-memchr.c
-memcmp.c
-memcpy.c
-memmove.c
-memset.c
-putchar_fd.c
-putendl_fd.c
-putnbr_fd.c
-putstr_fd.c
-split.c
-strchr.c
-strdup.c
-strjoin.c
-strlcat.c
-strlcpy.c
-strlen.c
-strmapi.c
-strncmp.c
-strnstr.c
-strrchr.c
-strtrim.c
-substr.c
-tolower.c
-toupper.c
-## 링크드 리스트 구현 목록
-ft_lstadd_back.c
-ft_lstadd_front.c
-ft_lstclear.c
-ft_lstdelone.c
-ft_lstiter.c
-ft_lstlast.c
-ft_lstmap.c
-ft_lstnew.c
-ft_lstsize.c
+- 가상환경, 가상 머신, 하이퍼바이저에 대한 이해
+- 리눅스 이해하기
+- 리눅스 시스템 및 명령어 익히기, 쉘스크립트 문법
+- sudo는 무엇이고 어떤 동작을 하는지
+- 패키지 시스템 (apt, apt-get, aptitude, rpm)
+- LVM이란?
+- 어플리케이션 권한 설정(AppArmor, SELinux)
+- root와 일반 사용자에 대해, 사용자 분리의 필요성)
+- 패스워드 정책에 대해
+- ssh
+- 방화벽
+- cron
+- 포트포워딩
+- 웹 서버 기본 구조(보너스)
