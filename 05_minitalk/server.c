@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:32:48 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/19 22:28:22 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/20 20:36:41 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	ft_receive_connection(int signum, siginfo_t *siginfo, void *context)
 		g_request.clipid = siginfo->si_pid;
 		sigaction(SIGUSR2, &g_request.phase_read_msglen, NULL);
 		sigaction(SIGUSR1, &g_request.phase_read_msglen, NULL);
-		ft_handshake_req(g_request.clipid);
+		ft_handshake_user2(g_request.clipid);
 	}
 	else if (g_request.clipid)
-		ft_handshake_wait(g_request.clipid);
+		ft_handshake_user1(g_request.clipid);
 }
 
 void	struct_init(void)
@@ -75,6 +75,8 @@ int	main(void)
 {
 	pid_print(getpid(), 2);
 	struct_init();
+	sigaction(SIGUSR2, &g_request.phase_read_connection, NULL);
+	sigaction(SIGUSR1, &g_request.phase_read_connection, NULL);
 	while (1)
 	{
 		pause();
