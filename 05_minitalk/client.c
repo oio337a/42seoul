@@ -6,13 +6,50 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 22:17:17 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/20 22:32:59 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/21 19:57:10 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./client.h"
 
 t_request	g_request;
+
+void	ft_receive_ping_cnt(int signo, siginfo_t *siginfo, void *context)
+{
+	(void)siginfo;
+	(void)context;
+	if (signo == SIGUSR1)
+	{
+		ft_send_connection();
+	}
+	if (signo == SIGUSR2)
+	{
+		sigaction(SIGUSR2, &g_request.phase_send_msglen, NULL);
+		sigaction(SIGUSR1, &g_request.phase_send_msglen, NULL);
+		ft_intbit_send(g_request.srvpid, g_request.len);
+	}
+}
+
+void	ft_send_connection(void)
+{
+	int			sleep_checker;
+	static int	tc;
+
+	sleep_checker = 0;
+	tc = 0;
+	while (1)
+	{
+		kill(g_request.srvpid, SIGUSR2);
+		sleep_checker = usleep(1000000);
+		tc++;
+		if (sleep_checker != 0 || tc == 31)
+		{
+			break ;
+		}
+	}
+	if (tc == 31)
+		ft_strerr("Error\n: the Server didn't receive client's request");
+}
 
 int	main(int ac, char **av)
 {
