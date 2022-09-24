@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   client_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 15:56:30 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/09 16:18:23 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/09/24 15:57:14 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/09/24 15:58:44 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CLIENT_BONUS_H
+# define CLIENT_BONUS_H
 
-void	*ft_calloc(size_t cnt, size_t size)
-{
-	void	*result;
+int		ft_atoi(const char *str);
+void	ft_putnbr(int n, int fd);
 
-	result = malloc(size * cnt);
-	if (!result)
-		return (NULL);
-	ft_memset(result, 0, size * cnt);
-	return (result);
-}
+#endif

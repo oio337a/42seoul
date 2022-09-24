@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   server_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 16:39:55 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/16 18:47:24 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/09/24 15:57:37 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/09/24 15:59:25 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef SERVER_BONUS_H
+# define SERVER_BONUS_H
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+typedef struct s_box
 {
-	int	i;
+	int		sum;
+	int		phase;
+	int		client_pid;
+}	t_box;
 
-	i = 0;
-	while (s[i])
-	{
-		f(i, &s[i]);
-		i++;
-	}
-}
+void	ft_putnbr(int n, int fd);
+void	get_client_pid(int signo, siginfo_t *info, void *context);
+void	catching_sig(int signo, siginfo_t *info, void *context);
+
+#endif

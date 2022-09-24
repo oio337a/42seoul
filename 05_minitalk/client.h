@@ -6,7 +6,13 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 19:57:36 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/21 19:57:37 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/24 15:55:09 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CLIENT_H
+# define CLIENT_H
+
+int		ft_atoi(const char *str);
+
+#endif

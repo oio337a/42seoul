@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 19:25:45 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/17 19:59:56 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/09/24 16:02:23 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/09/24 16:02:30 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+static void	ft_putchar(char c, int fd)
 {
-	size_t	cnt;
-	size_t	i;
+	write(fd, &c, 1);
+}
 
-	cnt = 0;
-	while (src[cnt])
-		cnt++;
-	i = 0;
-	if (size)
+static void	ft_put_rec(long c, int fd)
+{
+	if (c >= 10)
 	{
-		while (src[i] && i < (size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		ft_put_rec(c / 10, fd);
+		c = c % 10;
 	}
-	return (cnt);
+	ft_putchar(c + '0', fd);
+}
+
+void	ft_putnbr(int n, int fd)
+{
+	long	num;
+
+	if (fd >= 0)
+	{
+		num = n;
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			num = num * (-1);
+		}
+		ft_put_rec(num, fd);
+	}
 }

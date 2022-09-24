@@ -6,80 +6,45 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:32:48 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/20 20:36:41 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/24 16:45:20 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./server.h"
+#include <unistd.h>
+#include <signal.h>
+#include "server.h"
 
-t_request	g_request;
+t_box	g_res;
 
-void	ft_receive_connection(int signum, siginfo_t *siginfo, void *context)
+void	catching_sig(int signo)
 {
-	(void)signum;
-	(void)context;
-	if (g_request.clipid == 0)
+	if (signo == SIGUSR1)
+		g_res.sum |= 0;
+	else
+		g_res.sum |= 1;
+	++(g_res.phase);
+	if (g_res.phase == 8)
 	{
-		g_request.clipid = siginfo->si_pid;
-		sigaction(SIGUSR2, &g_request.phase_read_msglen, NULL);
-		sigaction(SIGUSR1, &g_request.phase_read_msglen, NULL);
-		ft_handshake_user2(g_request.clipid);
+		write(1, &(g_res.sum), 1);
+		g_res.phase = 0;
+		g_res.sum = 0;
 	}
-	else if (g_request.clipid)
-		ft_handshake_user1(g_request.clipid);
+	g_res.sum <<= 1;
 }
 
-void	struct_init(void)
+void	waiting_msg(void)
 {
-	g_request.phase_read_connection.sa_sigaction = ft_receive_connection;
-	g_request.phase_read_msglen.sa_sigaction = ft_receive_header;
-	g_request.phase_read_msg.sa_sigaction = ft_receive_msg;
-	sigemptyset(&g_request.phase_read_connection.sa_mask);
-	sigemptyset(&g_request.phase_read_msglen.sa_mask);
-	sigemptyset(&g_request.phase_read_msg.sa_mask);
-	g_request.phase_read_connection.sa_flags = SA_SIGINFO;
-	g_request.phase_read_msglen.sa_flags = SA_SIGINFO;
-	g_request.phase_read_msg.sa_flags = SA_SIGINFO;
-}
-
-int	pid_print(int pid, int flag)
-{
-	char	*buf;
-
-	buf = ft_itoa(pid);
-	if (!buf)
-		exit(1);
-	if (flag == 1)
-		write(1, "client pid : ", 13);
-	else if (flag == 2)
-		write(1, "server pid : ", 13);
-	write(1, buf, ft_strlen(buf));
-	write(1, "\n", 1);
-	free(buf);
-	return (0);
-}
-
-void	ft_initialize_req(void)
-{
-	g_request.clipid = 0;
-	g_request.len = 0;
-	g_request.len_bc = 0;
-	g_request.msg = NULL;
-	g_request.msg_ix = 0;
-	g_request.msg_bc = 0;
-	sigaction(SIGUSR2, &g_request.phase_read_connection, NULL);
-	sigaction(SIGUSR1, &g_request.phase_read_connection, NULL);
+	(void)signal(SIGUSR1, catching_sig);
+	(void)signal(SIGUSR2, catching_sig);
+	while (1)
+		pause();
 }
 
 int	main(void)
 {
-	pid_print(getpid(), 2);
-	struct_init();
-	sigaction(SIGUSR2, &g_request.phase_read_connection, NULL);
-	sigaction(SIGUSR1, &g_request.phase_read_connection, NULL);
-	while (1)
-	{
-		pause();
-	}
+	write(1, "server's PID : ", 16);
+	ft_putnbr(getpid(), 1);
+	write(1, "\n", 1);
+	waiting_msg();
 	return (0);
 }

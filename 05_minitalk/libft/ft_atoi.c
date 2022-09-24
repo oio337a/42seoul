@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 18:04:10 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/18 22:12:14 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/07/09 15:42:48 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/09/24 16:44:25 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strtrim(char const *s1, char const *set)
+int	ft_atoi(const char *str)
 {
-	size_t	s;
-	size_t	e;
+	int	i;
+	int	sign;
+	int	result;
 
-	s = 0;
-	e = ft_strlen(s1) - 1;
-	while (s1[s] != '\0' && ft_strchr(set, s1[s]))
-		s++;
-	if (s >= (e + 1))
-		return ((char *)ft_calloc(1, sizeof(char)));
-	while (ft_strchr(set, s1[e]))
-		e--;
-	return (ft_substr(s1, s, (e - s + 1)));
+	i = 0;
+	sign = 1;
+	result = 0;
+	while ((9 <= str[i] && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] && '0' <= str[i] && str[i] <= '9')
+	{
+		result = result * 10 + str[i] - '0';
+		i++;
+	}
+	return (result * sign);
 }
