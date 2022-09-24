@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 15:57:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/24 15:58:27 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/24 18:36:15 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,15 @@ void	trans_to_binary(int pid, char c)
 	while (i--)
 	{
 		if ((c >> i) & 1)
-			kill(pid, SIGUSR2);
+		{
+			if (kill(pid, SIGUSR2) == -1)
+				exit(1);
+		}
 		else
-			kill(pid, SIGUSR1);
+		{
+			if (kill(pid, SIGUSR1) == -1)
+				exit(1);
+		}
 		usleep(1000);
 	}
 }
@@ -80,8 +86,8 @@ int	main(int ac, char **av)
 {
 	if (ac < 3)
 		return (-1);
-	(void)signal(SIGUSR1, waiting_msg);
-	(void)signal(SIGUSR2, waiting_msg);
+	signal(SIGUSR1, waiting_msg);
+	signal(SIGUSR2, waiting_msg);
 	if (kill(ft_atoi(av[1]), SIGUSR1) == -1)
 		exit(1);
 	pause();
