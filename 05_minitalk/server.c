@@ -6,13 +6,10 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:32:48 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/24 17:43:15 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/26 16:47:05 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <signal.h>
 #include "server.h"
 
 t_box	g_res;

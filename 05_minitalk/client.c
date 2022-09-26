@@ -6,14 +6,11 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 22:17:17 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/24 18:07:25 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/26 16:47:03 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "client.h"
-#include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
 
 void	trans_to_binary(int pid, char c)
 {

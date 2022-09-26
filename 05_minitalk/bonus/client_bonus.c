@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 15:57:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/24 18:36:15 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/26 17:08:12 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	receive_ans(int signo, siginfo_t *info, void *context)
 	{
 		write(1, "PID : ", 7);
 		ft_putnbr(info->si_pid, 1);
-		write(1, " try again.\n", 13);
+		write(1, " Transmission failed.\n", 22);
 		exit(0);
 	}
 }
