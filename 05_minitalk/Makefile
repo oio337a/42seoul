@@ -6,7 +6,7 @@
 #    By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/24 16:00:35 by yongmipa          #+#    #+#              #
-#    Updated: 2022/09/24 16:00:38 by yongmipa         ###   ########seoul.kr   #
+#    Updated: 2022/09/26 19:39:43 by yongmipa         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ clean :
 
 fclean : clean
 	$(RM) $(NAME) server client_bonus server_bonus
-	
+
 re : 
 	make fclean
 	make all
