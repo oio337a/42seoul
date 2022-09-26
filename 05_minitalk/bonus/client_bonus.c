@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 15:57:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/26 17:08:12 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/26 19:24:57 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ void	waiting_msg(int signo)
 int	main(int ac, char **av)
 {
 	if (ac < 3)
+	{
+		write(1, "Error : ./client [PID] [Messege]\n", 33);
 		return (-1);
+	}
 	signal(SIGUSR1, waiting_msg);
 	signal(SIGUSR2, waiting_msg);
 	if (kill(ft_atoi(av[1]), SIGUSR1) == -1)

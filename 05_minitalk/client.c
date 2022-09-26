@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 22:17:17 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/26 16:47:03 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/26 19:22:43 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 {
 	if (ac < 3)
 	{
-		write(1, "Error : ./client [PID] [Messege]\n", 31);
+		write(1, "Error : ./client [PID] [Messege]\n", 33);
 		return (-1);
 	}
 	sending_msg(ft_atoi(av[1]), av[2]);

@@ -6,26 +6,26 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/24 20:05:24 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/26 18:28:41 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>  // printf()
-#include <stdlib.h> // exit()
+#include <stdio.h>
+#include <stdlib.h>
 #include <mlx.h>
 
-#define X_EVENT_KEY_PRESS 2     // mlx_hook 함수의 두 번째 인자인 
-#define X_EVENT_KEY_RELEASE 3   // x_event에 들어가는 값
+#define X_EVENT_KEY_PRESS 2
+#define X_EVENT_KEY_RELEASE 3
 
-#define KEY_W 13    // MacOS의 키보드 코드들이다.          
-#define KEY_A 0     //
-#define KEY_S 1     // 위에서 부터 차례대로
-#define KEY_D 2     //
-#define KEY_ESC 53  // 'W' 'A' 'S' 'D' 'ESC'들의 키보드 코드이다.
+#define KEY_W 13
+#define KEY_A 0
+#define KEY_S 1
+#define KEY_D 2
+#define KEY_ESC 53
 
-typedef	struct s_param // 키 값을 입력 받고 정해진 동작을 수행했는지
-{                      // 여부를 판단하기 위해 선언하였다.
-	int x;               // x값
+typedef	struct s_param
+{
+	int x;
 	int y;               // y값
 } t_param;
 
