@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/09/26 18:28:41 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/09/28 23:00:49 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 typedef	struct s_param
 {
 	int x;
-	int y;               // y값
+	int y;
 } t_param;
 
 void param_init(t_param *param) // 구조체 param 초기화 함수
