@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/10/11 15:22:16 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/10/12 21:09:37 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void param_init(t_param *param)
 }
 
 int key_press(int keycode, t_param *param) 
-{                                                // 정의된 행동을 수행하는 함수
-	if (keycode == KEY_W)        // W 키를 누르면 param.x값이 1 증가한다.
+{
+	if (keycode == KEY_W)
 		param->x++;
 	else if (keycode == KEY_S)   // S 키를 누르면 param.x값이 1 감소한다.
 		param->x--;
