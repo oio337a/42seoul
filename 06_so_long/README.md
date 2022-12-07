@@ -20,3 +20,15 @@ C
 ```
 gcc -lmlx -framework OpenGL -framework AppKit main.c
 ```
+
+### mlx 관련
+```C
+void * mlx_init(void);
+// - 나의 소프트웨어와 OS의 디스플레이를 연결해주는 함수.
+
+void * mlx_new_window ( void mlx_ptr, int size_x, int size_y, char *title );
+// - 디스플레이에 새로운 윈도우를 띄우는 함수. 앞서 받아온 포인터와 가로 세로 크기, 그리고 창의 제목을 받아서 띄운다.
+
+int mlx_loop ( void *mlx_ptr );
+// - 띄운 창에서 키보드와 마우스의 입력을 기다린다. 혹은 창의 일부를 다시 그리는 역할도 함
+```
