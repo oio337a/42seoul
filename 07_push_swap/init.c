@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:36:57 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/10/24 15:07:00 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/10/24 19:26:07 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_node	*init_node(void)
 	t_node	*tmp;
 
 	tmp = malloc(sizeof(t_node));
+	if (!tmp)
+		return (NULL);
 	tmp->next = NULL;
 	return (tmp);
 }
