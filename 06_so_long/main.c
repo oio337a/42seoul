@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/07 22:54:10 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/08 19:51:47 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@
 #define KEY_D 2
 #define KEY_ESC 53
 
-typedef	struct s_param
+typedef struct s_param
 {
-	int x;
-	int y;
-} t_param;
+	int	x;
+	int	y;
+}				t_param;
 
-void param_init(t_param *param)
+void	param_init(t_param *param)
 {
 	param->x = 0;
 	param->y = 0;
 }
 
-int key_press(int keycode, t_param *param) 
+int	key_press(int keycode, t_param *param)
 {
 	if (keycode == KEY_W)
 		param->x++;
@@ -51,12 +51,12 @@ int key_press(int keycode, t_param *param)
 	return (0);
 }
 
-int main(void)
+int	main(void)
 {
-	void *mlx_ptr;
-	void *win_ptr;
-	t_param param;
-	
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_param	param;
+
 	mlx_ptr = mlx_init();
 	param_init(&param);
 	win_ptr = mlx_new_window(mlx_ptr, 300, 300, "Hello, World!");
