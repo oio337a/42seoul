@@ -31,4 +31,11 @@ void * mlx_new_window ( void mlx_ptr, int size_x, int size_y, char *title );
 
 int mlx_loop ( void *mlx_ptr );
 // - 띄운 창에서 키보드와 마우스의 입력을 기다린다. 혹은 창의 일부를 다시 그리는 역할도 함
+
+int	mlx_key_hook(void *win_ptr, int (*funct_ptr)(), void *param);
+int mlx_mouse_hook(void *win_ptr, int (*funct_ptr)(), void *param);
+int mlx_expose_hook(void *win_ptr, int (*funct_ptr)(), void *param);
+// - 위 세가지 함수는 모두 같은 방식으로 작동한다.
+// - funct_ptr는 이벤트 발생시 당신이 호출하고 싶은 함수를 가리키는 함수 포인터 이다.
+// - param의 주소는 호출될 때마다 전달되고 필요한 매개 변수를 저장하는 데 사용해야한다.
 ```
