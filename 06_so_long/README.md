@@ -38,4 +38,17 @@ int mlx_expose_hook(void *win_ptr, int (*funct_ptr)(), void *param);
 // - 위 세가지 함수는 모두 같은 방식으로 작동한다.
 // - funct_ptr는 이벤트 발생시 당신이 호출하고 싶은 함수를 가리키는 함수 포인터 이다.
 // - param의 주소는 호출될 때마다 전달되고 필요한 매개 변수를 저장하는 데 사용해야한다.
+
+void	*mlx_new_image(void *mlx_ptr, int width, int height);
+// - 새 이미지를 메모리에 생성시킨다.
+
+int mlx_put_image_to_window(void *mlx_ptr, void *win_ptr, void *img_ptr, int x, int y);
+// - 이미지 내부를 그릴 수 있으며 언제든지 지정된 창 내에서 이미지를 덤프하여 화면에 표시 할 수 있다.
+
+char	*mlx_get_data_addr(void *img_ptr, int *bits_per_pixel, int *size_line, int *endian);
+// - mlx_get_data_addr ()는 생성된 이미지에 대한 정보를 리턴해서 사용자가 나중에 이미지를 수정할 수 있도록 한다.
+
+int mlx_destroy_image(void *mlx_ptr, void *img_ptr);
+// - 주어진 이미지(img_ptr)을 삭제한다.
+
 ```
