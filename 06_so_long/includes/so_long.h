@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:58:08 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 16:58:14 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/17 17:33:13 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # include "get_next_line.h"
 # include <stddef.h>
+# include <mlx.h>
 
 # define KEY_PRESS			2
 # define DESTROY_NOTIFY		17

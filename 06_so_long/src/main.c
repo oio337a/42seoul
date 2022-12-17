@@ -6,61 +6,36 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 16:32:39 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/17 17:34:55 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <mlx.h>
+#include "../includes/so_long.h"
 
-#define X_EVENT_KEY_PRESS 2
-#define X_EVENT_KEY_RELEASE 3
-
-#define KEY_W 13
-#define KEY_A 0
-#define KEY_S 1
-#define KEY_D 2
-#define KEY_ESC 53
-
-typedef struct s_param
+static void	*new_window(void *mlx, size_t width, size_t height)
 {
-	int	x;
-	int	y;
-}				t_param;
+	void	*win;
 
-void	param_init(t_param *param)
-{
-	param->x = 0;
-	param->y = 0;
+	win = mlx_new_window(mlx, width * 64, height * 64, "./so_long");
+	return (win);
 }
 
-int	key_press(int keycode, t_param *param)
+int	main(int argc, char *argv[])
 {
-	if (keycode == KEY_W)
-		param->x++;
-	else if (keycode == KEY_S)
-		param->x--;
-	else if (keycode == KEY_A)
-		param->y++;
-	else if (keycode == KEY_D)
-		param->y--;
-	else if (keycode == KEY_ESC)
-		exit(0);
-	printf("(x, y): (%d, %d)\n", param->x, param->y);
-	return (0);
-}
+	t_game	*game;
 
-int	main(void)
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_param	param;
-
-	mlx_ptr = mlx_init();
-	param_init(&param);
-	win_ptr = mlx_new_window(mlx_ptr, 300, 300, "Hello, World!");
-	mlx_hook(win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &param);
-	mlx_loop(mlx_ptr);
+	if (!is_arguments_valid(argc, argv[1]))
+		error("bad arguments");
+	game = game_init();
+	parse_map(game->map, argv[1]);
+	if (!is_map_valid(game->map))
+		error("Invalid map");
+	game->mlx = mlx_init();
+	game->win = new_window(game->mlx, game->map->width, game->map->height);
+	img_init(game->img, game->mlx);
+	draw_map(game->map, game->img, game->mlx, game->win);
+	mlx_hook(game->win, KEY_PRESS, 0, press_key, game);
+	mlx_hook(game->win, DESTROY_NOTIFY, 0, exit_game, game);
+	mlx_loop(game->mlx);
 	return (0);
 }
