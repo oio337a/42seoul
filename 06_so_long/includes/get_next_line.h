@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:15:25 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 16:57:40 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/17 17:38:09 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10000
+# endif
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
