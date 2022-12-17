@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/08 19:51:47 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/17 16:32:39 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ int	key_press(int keycode, t_param *param)
 {
 	if (keycode == KEY_W)
 		param->x++;
-	else if (keycode == KEY_S)   // S 키를 누르면 param.x값이 1 감소한다.
+	else if (keycode == KEY_S)
 		param->x--;
-	else if (keycode == KEY_A)   // A 키를 누르면 param.y값이 1 증가한다.
+	else if (keycode == KEY_A)
 		param->y++;
-	else if (keycode == KEY_D)   // D 키를 누르면 param.y값이 1 감소한다.
+	else if (keycode == KEY_D)
 		param->y--;
-	else if (keycode == KEY_ESC) // ESC 키를 누르면 프로그램 종료
+	else if (keycode == KEY_ESC)
 		exit(0);
-	printf("(x, y): (%d, %d)\n", param->x, param->y); // param의 값 확인
+	printf("(x, y): (%d, %d)\n", param->x, param->y);
 	return (0);
 }
 
@@ -60,7 +60,7 @@ int	main(void)
 	mlx_ptr = mlx_init();
 	param_init(&param);
 	win_ptr = mlx_new_window(mlx_ptr, 300, 300, "Hello, World!");
-	mlx_hook(win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &param); // 키를 잡는 함수
+	mlx_hook(win_ptr, X_EVENT_KEY_PRESS, 0, &key_press, &param);
 	mlx_loop(mlx_ptr);
 	return (0);
 }
