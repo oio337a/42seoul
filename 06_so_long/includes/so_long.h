@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:58:08 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 17:33:13 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/17 18:01:32 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_img
 	void	*wall;
 	void	*land;
 	void	*exit;
-	void	*cha;
+	void	*pac;
 	void	*coll;
 }	t_img;
 

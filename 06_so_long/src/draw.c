@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:34:41 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 17:34:48 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/17 18:01:38 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	array_init(void *img_arr[], t_img *img)
 {
 	img_arr['1'] = img->wall;
 	img_arr['C'] = img->coll;
-	img_arr['P'] = img->cha;
+	img_arr['P'] = img->pac;
 	img_arr['E'] = img->exit;
 	img_arr['0'] = img->land;
 }
