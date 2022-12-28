@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   bfs.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 17:54:46 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/28 19:37:08 by yongmipa         ###   ########seoul.kr  */
+/*   Created: 2022/12/28 15:48:44 by yongmipa          #+#    #+#             */
+/*   Updated: 2022/12/28 17:47:40 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/so_long.h"
+#include <stdio.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	bfs(t_map *map)
 {
-	char	*str;
-	size_t	s1_len;
-	size_t	s2_len;
-
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	str = (char *)malloc(s1_len + s2_len + 1);
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s1, s1_len + 1);
-	ft_strlcat(str + s1_len, s2, s2_len + 1);
-	return (str);
+	write(1, map->str, ft_strlen(map->str));
+	return (TRUE);
 }

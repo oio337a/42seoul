@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:41:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 17:41:01 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/28 17:50:40 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,17 @@ static int	is_walls_surrounded(t_map *map)
 static int	is_all_char_valid(t_map *map, int cnt[])
 {
 	size_t	sum;
+	t_map	*temp;
 
+	temp = (t_map *)malloc(sizeof(t_map));
+	temp->str = "";
+	temp->str = ft_strjoin(temp->str, map->str);
+	if (!bfs(temp))
+		return (FALSE);
 	sum = cnt['P'] + cnt['E'] + cnt['C'] + cnt['1'] + cnt['0'];
 	if (ft_strlen(map->str) != sum)
 		return (FALSE);
-	if (cnt['P'] != 1 || cnt['E'] == 0 || cnt['C'] == 0)
+	if (cnt['P'] != 1 || cnt['E'] != 1 || cnt['C'] == 0)
 		return (FALSE);
 	return (TRUE);
 }

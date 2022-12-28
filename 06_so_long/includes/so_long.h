@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 16:58:08 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 18:01:32 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/28 17:42:47 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_game	*game_init(void);
 void	img_init(t_img *img, void *mlx_ptr);
 int		is_map_valid(t_map *map);
 int		is_arguments_valid(int argc, char *filename);
+int		bfs(t_map *map);
 void	parse_map(t_map *map, char *filename);
 void	draw_map(t_map *map, t_img *img, void *m, void *w);
 int		press_key(int keycode, t_game *game);

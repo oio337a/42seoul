@@ -6,7 +6,7 @@
 #    By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 17:14:23 by yongmipa          #+#    #+#              #
-#    Updated: 2022/12/17 17:50:44 by yongmipa         ###   ########seoul.kr   #
+#    Updated: 2022/12/28 16:09:12 by yongmipa         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIB_NAME	= ./libft/libft.a
 INCS		= -I includes
 MLX_FLAGS	= -lmlx -framework OpenGL -framework AppKit main.c
 
-SRC			=	main.c init.c validate.c parsing.c draw.c press_key.c error.c get_next_line.c
+SRC			=	main.c init.c validate.c parsing.c draw.c press_key.c error.c get_next_line.c bfs.c
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
 LIBS		=	$(addprefix $(LIB_DIR), $(LIB_NAME))
 OBJS		=	$(SRCS:.c=.o)
