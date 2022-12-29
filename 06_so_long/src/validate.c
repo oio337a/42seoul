@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:41:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/29 17:15:51 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/29 21:18:27 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ static int	is_all_char_valid(t_map *map, int cnt[])
 	t_dfs	*dfs_struct;
 	int		*xy;
 
+	sum = cnt['P'] + cnt['E'] + cnt['C'] + cnt['1'] + cnt['0'];
+	if (ft_strlen(map->str) != sum)
+		return (FALSE);
+	if (cnt['P'] != 1 || cnt['E'] != 1 || cnt['C'] == 0)
+		return (FALSE);
 	dfs_struct = ft_calloc(1, sizeof(t_dfs));
 	dfs_struct->map = make_mapstr(map);
 	xy = get_player_pos(map, dfs_struct->map);
@@ -70,11 +75,6 @@ static int	is_all_char_valid(t_map *map, int cnt[])
 	ft_allfree((void *)dfs_struct->visited);
 	free(dfs_struct);
 	free(xy);
-	sum = cnt['P'] + cnt['E'] + cnt['C'] + cnt['1'] + cnt['0'];
-	if (ft_strlen(map->str) != sum)
-		return (FALSE);
-	if (cnt['P'] != 1 || cnt['E'] != 1 || cnt['C'] == 0)
-		return (FALSE);
 	return (TRUE);
 }
 
