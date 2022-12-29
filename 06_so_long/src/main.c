@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 17:34:55 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/29 17:19:21 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,30 @@ static void	*new_window(void *mlx, size_t width, size_t height)
 	return (win);
 }
 
+static int	is_arguments_valid(int argc, char *filename)
+{
+	size_t	len;
+
+	if (argc != 2)
+		return (FALSE);
+	len = ft_strlen(filename);
+	if (len < 5)
+		return (FALSE);
+	if (ft_strncmp(filename + len - 4, ".ber", 4) != 0)
+		return (FALSE);
+	return (TRUE);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_game	*game;
 
 	if (!is_arguments_valid(argc, argv[1]))
-		error("bad arguments");
+		exit(print_error("bad arguments"));
 	game = game_init();
 	parse_map(game->map, argv[1]);
 	if (!is_map_valid(game->map))
-		error("Invalid map");
+		exit(print_error("Invalid map"));
 	game->mlx = mlx_init();
 	game->win = new_window(game->mlx, game->map->width, game->map->height);
 	img_init(game->img, game->mlx);

@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:40:03 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/28 16:50:00 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/29 15:16:16 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	parse_map(t_map *map, char *filename)
 	fd = open(filename, O_RDONLY);
 	map->str = get_next_line(fd);
 	if (!map->str)
-		error("Failed to read file");
+		exit(print_error("Failed to read file"));
 	map->width = ft_strlen(map->str);
 	map->height = 1;
 	while (42)
@@ -35,7 +35,7 @@ void	parse_map(t_map *map, char *filename)
 		temp = map->str;
 		map->str = ft_strjoin(map->str, line);
 		if (!map->str)
-			error("Failed to read file");
+			exit(print_error("Failed to read file"));
 		free(line);
 		free(temp);
 		(map->height)++;

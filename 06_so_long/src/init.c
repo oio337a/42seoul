@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:39:15 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/28 16:37:19 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/29 15:15:58 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ t_game	*game_init(void)
 
 	game = malloc(sizeof(t_game));
 	if (!game)
-		error("Memory allocation failed");
+		exit(print_error("Memory allocation failed"));
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)
-		error("Memory allocation failed");
+		exit(print_error("Memory allocation failed"));
 	game->img = malloc(sizeof(t_img));
 	if (!game->img)
-		error("Memory allocation failed");
+		exit(print_error("Memory allocation failed"));
 	game->move_cnt = 0;
 	game->coll_cnt = 0;
 	return (game);

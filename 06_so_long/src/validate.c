@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:41:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/28 17:50:40 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2022/12/29 17:15:51 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,34 +46,34 @@ static int	is_walls_surrounded(t_map *map)
 	return (TRUE);
 }
 
-static int	is_all_char_valid(t_map *map, int cnt[])
+static int	is_valid_map(int table[], int coll_sum)
 {
-	size_t	sum;
-	t_map	*temp;
-
-	temp = (t_map *)malloc(sizeof(t_map));
-	temp->str = "";
-	temp->str = ft_strjoin(temp->str, map->str);
-	if (!bfs(temp))
-		return (FALSE);
-	sum = cnt['P'] + cnt['E'] + cnt['C'] + cnt['1'] + cnt['0'];
-	if (ft_strlen(map->str) != sum)
-		return (FALSE);
-	if (cnt['P'] != 1 || cnt['E'] != 1 || cnt['C'] == 0)
+	if (table['E'] != 1 || table['C'] != coll_sum)
 		return (FALSE);
 	return (TRUE);
 }
 
-int	is_arguments_valid(int argc, char *filename)
+static int	is_all_char_valid(t_map *map, int cnt[])
 {
-	size_t	len;
+	size_t	sum;
+	t_dfs	*dfs_struct;
+	int		*xy;
 
-	if (argc != 2)
+	dfs_struct = ft_calloc(1, sizeof(t_dfs));
+	dfs_struct->map = make_mapstr(map);
+	xy = get_player_pos(map, dfs_struct->map);
+	dfs_struct->visited = make_visited(map);
+	dfs(dfs_struct, xy[0], xy[1]);
+	if (!is_valid_map(dfs_struct->table, map->coll_sum))
+		exit(print_error("Invalid map"));
+	ft_allfree((void *)dfs_struct->map);
+	ft_allfree((void *)dfs_struct->visited);
+	free(dfs_struct);
+	free(xy);
+	sum = cnt['P'] + cnt['E'] + cnt['C'] + cnt['1'] + cnt['0'];
+	if (ft_strlen(map->str) != sum)
 		return (FALSE);
-	len = ft_strlen(filename);
-	if (len < 5)
-		return (FALSE);
-	if (ft_strncmp(filename + len - 4, ".ber", 4) != 0)
+	if (cnt['P'] != 1 || cnt['E'] != 1 || cnt['C'] == 0)
 		return (FALSE);
 	return (TRUE);
 }
@@ -95,7 +95,7 @@ int	is_map_valid(t_map *map)
 	{
 		if (map->str[i] == 'P')
 			map->p_pos = i;
-		cnt[(unsigned char) map->str[i]]++;
+		cnt[(unsigned char)map->str[i]]++;
 	}
 	map->coll_sum = cnt['C'];
 	if (!is_all_char_valid(map, cnt))
