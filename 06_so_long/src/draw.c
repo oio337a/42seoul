@@ -6,11 +6,12 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:34:41 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/17 18:01:38 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/02 18:30:43 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../mlx/mlx.h"
 
 static void	array_init(void *img_arr[], t_img *img)
 {

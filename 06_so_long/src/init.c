@@ -6,11 +6,12 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:39:15 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/29 15:15:58 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/02 18:30:56 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../mlx/mlx.h"
 #include <stdlib.h>
 
 t_game	*game_init(void)

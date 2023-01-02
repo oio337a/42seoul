@@ -6,11 +6,12 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:40:31 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/28 16:37:59 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/02 18:31:22 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../mlx/mlx.h"
 #include <stdlib.h>
 #include <stdio.h>
 

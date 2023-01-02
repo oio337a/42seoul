@@ -6,7 +6,7 @@
 #    By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 17:14:23 by yongmipa          #+#    #+#              #
-#    Updated: 2022/12/29 15:22:39 by yongmipa         ###   ########seoul.kr   #
+#    Updated: 2023/01/02 18:25:54 by yongmipa         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ RM			= rm -f
 INCS_DIR	= ./includes/
 SRCS_DIR	= ./src/
 LIB_DIR		= ./libft/
+MLX_DIR		= ./mlx/
 
 LIB_NAME	= ./libft/libft.a
 INCS		= -I includes
-MLX_FLAGS	= -lmlx -framework OpenGL -framework AppKit main.c
+MLX_FLAGS	= -L./mlx -lmlx -framework OpenGL -framework Appkit
 
 SRC			=	main.c init.c validate.c parsing.c draw.c press_key.c error.c get_next_line.c dfs.c
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
@@ -34,13 +35,15 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	make -C $(LIB_DIR)
-	$(CC) -o $(NAME) $(OBJS) -L $(LIB_DIR) -lft -I $(INCS_DIR) -lmlx -framework OpenGL -framework Appkit
+	make -C $(MLX_DIR)
+	$(CC) -o $(NAME) $(OBJS) -L $(LIB_DIR) -lft -I $(INCS_DIR) -L $(MLX_DIR) -lmlx -framework OpenGL -framework Appkit
 
 %.o : %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
 	make -C $(LIB_DIR) clean
+	make -C $(MLX_DIR) clean
 	$(RM) $(OBJS)
 
 fclean : clean

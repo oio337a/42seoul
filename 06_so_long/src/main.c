@@ -6,11 +6,12 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 19:24:51 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/29 17:19:21 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/02 18:30:18 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+#include "../mlx/mlx.h"
 
 static void	*new_window(void *mlx, size_t width, size_t height)
 {
