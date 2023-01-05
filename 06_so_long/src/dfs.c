@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:48:44 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/12/29 16:02:35 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/05 15:29:06 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,7 @@ void	dfs(t_dfs *dfs_struct, int x, int y)
 		return ;
 	dfs_struct->visited[y][x] = 1;
 	if (is_check_target(dfs_struct->map[y][x]))
-	{
 		dfs_struct->table[(unsigned char)dfs_struct->map[y][x]]++;
-		return ;
-	}
 	dfs(dfs_struct, x + 1, y);
 	dfs(dfs_struct, x - 1, y);
 	dfs(dfs_struct, x, y + 1);
