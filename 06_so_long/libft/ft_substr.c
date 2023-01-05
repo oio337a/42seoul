@@ -6,23 +6,31 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 17:17:45 by yongmipa          #+#    #+#             */
-/*   Updated: 2022/07/17 19:08:45 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/05 15:57:17 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *src, unsigned int start, size_t len)
 {
 	char	*str;
+	size_t	i;
 
-	if (ft_strlen(s) <= start || !len)
+	if (ft_strlen(src) <= start)
 		return (ft_strdup(""));
-	if (ft_strlen(s) < start + len)
-		len = ft_strlen(s) - start;
-	str = (char *)malloc(len + 1);
+	if (ft_strlen(src) < start + len)
+		len = ft_strlen(src) - start;
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, s + start, len + 1);
+	src += start;
+	i = 0;
+	while (src[i] && len--)
+	{
+		str[i] = src[i];
+		i++;
+	}
+	str[i] = '\0';
 	return (str);
 }

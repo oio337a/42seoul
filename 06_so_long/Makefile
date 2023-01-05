@@ -6,14 +6,14 @@
 #    By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 17:14:23 by yongmipa          #+#    #+#              #
-#    Updated: 2023/01/02 18:25:54 by yongmipa         ###   ########seoul.kr   #
+#    Updated: 2023/01/05 16:07:02 by yongmipa         ###   ########seoul.kr   #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 
 CC			= cc
-FLAGS		= -Wall -Werror -Wextra
+FLAGS		= -Wall -Werror -Wextra -g3
 AR			= ar rcs
 RM			= rm -f
 

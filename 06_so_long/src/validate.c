@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 17:41:00 by yongmipa          #+#    #+#             */
-/*   Updated: 2023/01/02 18:56:14 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/05 17:00:49 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 static int	is_rectangle(t_map *map)
 {
+	if (map->width > 128 || map->height > 128
+		|| map->width * map->height > 5000)
+		exit(print_error("Too big file"));
 	if (map->width * map->height != ft_strlen(map->str))
 		return (FALSE);
 	return (TRUE);
