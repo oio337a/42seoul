@@ -6,7 +6,7 @@
 /*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 15:48:44 by yongmipa          #+#    #+#             */
-/*   Updated: 2023/01/07 15:59:58 by yongmipa         ###   ########seoul.kr  */
+/*   Updated: 2023/01/16 21:26:56 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**make_mapstr(t_map *map)
 	char	**ret;
 	size_t	i;
 
-	ret = malloc(map->height + 1);
+	ret = malloc(sizeof(char *) * map->height + 1);
 	i = -1;
 	while (++i < map->height)
 		ret[i] = ft_substr(map->str + i * map->width, 0, map->width);
