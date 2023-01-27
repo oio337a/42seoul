@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:07:26 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 14:29:14 by suhwpark         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:44:03 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	count_argu(int ac, char *av[])
 {
 	char	**numbers;
 	int		i;
-	int		num;
 	int		len;
 
 	len = 0;
@@ -30,7 +29,6 @@ static int	count_argu(int ac, char *av[])
 		i = 0;
 		while (numbers[i])
 		{
-			num = ft_atoi2(numbers[i]);
 			len++;
 			i++;
 		}

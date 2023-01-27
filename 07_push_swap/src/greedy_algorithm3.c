@@ -3,54 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_algorithm3.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:39:31 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 12:36:38 by suhwpark         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:04:55 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	use_rrb(t_deque *a_stack, t_deque *b_stack, int ra_count, int rrb_count)
+void	use_rrb(t_deque *a_stack, t_deque *b_stack, int rra_cnt, int rrb_cnt)
 {
 	int	a_size;
 
-	ra_count = ra_count - rrb_count;
+	rra_cnt = rra_cnt - rrb_cnt;
 	a_size = get_stack_size(a_stack);
-	if (ra_count >= a_size / 2)
+	if (rra_cnt >= a_size / 2)
 	{
-		ra_count = a_size - ra_count;
-		while (ra_count && rrb_count && (ra_count-- && rrb_count--))
+		rra_cnt = a_size - rra_cnt;
+		while (rra_cnt && rrb_cnt && (rra_cnt-- && rrb_cnt--))
 			rrr(a_stack, b_stack);
-		if (ra_count < rrb_count)
+		if (rra_cnt < rrb_cnt)
 		{
-			while (rrb_count && rrb_count--)
+			while (rrb_cnt && rrb_cnt--)
 				rrb(b_stack);
 		}
-		else if (rrb_count < ra_count)
+		else if (rrb_cnt < rra_cnt)
 		{
-			while (ra_count && ra_count--)
+			while (rra_cnt && rra_cnt--)
 				rra(a_stack);
 		}
 	}
-	util_rrb(a_stack, b_stack, ra_count, rrb_count);
+	util_rrb(a_stack, b_stack, rra_cnt, rrb_cnt);
 }
 
-void	use_rb(t_deque *a_stack, t_deque *b_stack, int ra_count, int rb_count)
+void	use_rb(t_deque *a_stack, t_deque *b_stack, int ra_cnt, int rb_cnt)
 {
 	int	a_size;
 
 	a_size = get_stack_size(a_stack);
-	ra_count = ra_count - rb_count;
-	if (ra_count <= a_size / 2)
-		use_rr(a_stack, b_stack, ra_count, rb_count);
+	ra_cnt = ra_cnt - rb_cnt;
+	if (ra_cnt <= a_size / 2)
+		use_rr(a_stack, b_stack, ra_cnt, rb_cnt);
 	else
 	{
-		ra_count = a_size - ra_count;
-		while (ra_count > 0 && ra_count--)
+		ra_cnt = a_size - ra_cnt;
+		while (ra_cnt > 0 && ra_cnt--)
 			rra(a_stack);
-		while (rb_count > 0 && rb_count--)
+		while (rb_cnt > 0 && rb_cnt--)
 			rb(b_stack);
 	}
 }
