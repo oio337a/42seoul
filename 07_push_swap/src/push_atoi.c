@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   push_atoi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sohyupar <sohyupar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:52:14 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/20 15:07:00 by sohyupar         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:26:21 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-//
+
 static int	check_range(long long num)
 {
 	if (num > 2147483647L || num < -2147483648L)

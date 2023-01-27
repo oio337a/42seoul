@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 20:56:18 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/11 05:43:09 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/09 19:34:43 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/11/23 19:17:59 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*str_rear;
+	char	*str_end;
 
-	str_rear = (char *)str + ft_strlen(str);
-	while (str <= str_rear)
+	str_end = (char *)str + ft_strlen(str);
+	while (str <= str_end)
 	{
-		if (*str_rear == (char)c)
-			return (str_rear);
-		str_rear--;
+		if (*str_end == (char)c)
+			return (str_end);
+		str_end--;
 	}
-	return (NULL);
+	return (0);
 }

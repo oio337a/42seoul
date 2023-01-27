@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/10 00:45:33 by yoson             #+#    #+#             */
-/*   Updated: 2022/07/12 21:46:57 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/15 16:07:55 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/11/23 19:26:27 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-static void	put_nbr(long long nbr, int fd)
+static void	print_nbr(long long nbr, int fd)
 {
 	if (!nbr)
 		return ;
-	put_nbr(nbr / 10, fd);
+	if (nbr > 9)
+		print_nbr(nbr / 10, fd);
 	write(fd, &"0123456789"[nbr % 10], 1);
 }
 
@@ -36,5 +36,5 @@ void	ft_putnbr_fd(int n, int fd)
 		nbr *= -1;
 		write(fd, "-", 1);
 	}
-	put_nbr(nbr, fd);
+	print_nbr(nbr, fd);
 }

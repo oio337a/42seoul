@@ -2,7 +2,7 @@
 NAME		= push_swap
 
 CC			= cc
-FLAGS		= -Wall -Wextra
+FLAGS		= -Wall -Wextra -Werror
 AR			= ar rcs
 RM			= rm -f
 
@@ -38,6 +38,8 @@ fclean : clean
 	make -C $(LIB_DIR) fclean
 	$(RM) $(NAME)
 
-re : fclean all
+re :
+	make fclean
+	make all
 
 PHONY	: all clean fclean re

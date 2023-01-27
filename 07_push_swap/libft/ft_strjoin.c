@@ -3,31 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42.fr>                +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:31:32 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/11 18:29:51 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/09 21:40:15 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/11/23 19:16:23 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char	*str;
-	size_t	size;
-	size_t	i;
+	char	*result;
+	size_t	len;
 
-	size = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(size + 1);
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (*s1 != '\0')
-		str[i++] = *s1++;
-	while (*s2 != '\0')
-		str[i++] = *s2++;
-	str[i] = '\0';
-	return (str);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	result = (char *)malloc(len + 1);
+	if (!result)
+		return (0);
+	while (*s1)
+		*result++ = *s1++;
+	while (*s2)
+		*result++ = *s2++;
+	*result = '\0';
+	return (result - len);
 }

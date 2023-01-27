@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_algorithm1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sohyupar <sohyupar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:44:29 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 11:44:39 by sohyupar         ###   ########.fr       */
+/*   Updated: 2023/01/25 13:28:35 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,27 +70,9 @@ void	preprocess(t_deque *a_stack, t_deque *b_stack)
 	if (get_stack_size(a_stack) == 3 && is_empty(b_stack))
 	{
 		a_stack_sort(a_stack);
+		free(pivot);
 		return ;
 	}
-	// while (++i < a_stack->len)
-	// {
-	// 	if (get_stack_size(a_stack) == 3)
-	// 		break ;
-	// 	if (a_stack->data[i] <= pivot[0])
-	// 	{
-	// 		if (is_empty(b_stack))
-	// 			pb(a_stack, b_stack);
-	// 		else
-	// 		{	
-	// 			pb(a_stack, b_stack);
-	// 			rb(b_stack);
-	// 		}
-	// 	}
-	// 	else if (a_stack->data[i] > pivot[0] && a_stack->data[i] < pivot[1])
-	// 		pb(a_stack, b_stack);
-	// 	else
-	// 		ra(a_stack);
-	// }
 	preprocess_utils(a_stack, b_stack, pivot, i);
 	if (get_stack_size(a_stack) > 3)
 	{
@@ -102,4 +84,5 @@ void	preprocess(t_deque *a_stack, t_deque *b_stack)
 		}
 	}
 	a_stack_sort(a_stack);
+	free(pivot);
 }

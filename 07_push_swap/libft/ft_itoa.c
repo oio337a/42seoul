@@ -3,72 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42.fr>                +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 20:04:52 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/25 19:58:50 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/15 17:09:21 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/11/23 19:25:33 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-static int	find_len(int n)
+static int	get_len(long long nb)
 {
 	int	len;
 
 	len = 0;
-	if (n <= 0)
-		len++;
-	while (n)
+	if (nb < 0)
 	{
-		n /= 10;
 		len++;
+		nb *= -1;
+	}
+	while (nb > 0)
+	{
+		len++;
+		nb /= 10;
 	}
 	return (len);
 }
 
-static long long	ft_abs(int n)
+static char	*zero(void)
 {
-	long long	ret;
+	char	*res;
 
-	ret = n;
-	if (n < 0)
-		ret *= -1;
-	return (ret);
-}
-
-static char	*integer_to_ascii(char *ret, int n, int len)
-{
-	long long	abs;
-
-	if (n == 0)
-	{
-		ret[0] = '0';
-		ret[1] = '\0';
-		return (ret);
-	}
-	abs = ft_abs(n);
-	ret[len--] = '\0';
-	while (abs)
-	{
-		ret[len--] = abs % 10 + '0';
-		abs /= 10;
-	}
-	return (ret);
+	res = (char *)malloc(2);
+	res[0] = '0';
+	res[1] = '\0';
+	return (res);
 }
 
 char	*ft_itoa(int n)
 {
-	char		*ret;
-	int			len;
+	int			num_len;
+	char		*res;
+	long long	nb;
 
-	len = find_len(n);
-	ret = (char *)malloc(sizeof(char) * (len + 1));
-	if (!ret)
+	nb = (long long)n;
+	num_len = get_len(nb);
+	if (nb == 0)
+		return (zero());
+	res = (char *)malloc(sizeof(char) * num_len + 1);
+	if (!res)
 		return (NULL);
-	ret = integer_to_ascii(ret, n, len);
-	if (n < 0)
-		ret[0] = '-';
-	return (ret);
+	res[num_len--] = '\0';
+	if (nb < 0)
+	{
+		res[0] = '-';
+		nb *= -1;
+	}
+	while (nb > 0)
+	{
+		res[num_len] = (nb % 10) + '0';
+		num_len--;
+		nb /= 10;
+	}
+	return (res);
 }

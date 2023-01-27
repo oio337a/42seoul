@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 20:09:22 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/11 04:36:18 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/09 16:45:00 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/11/23 19:16:33 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	j;
+	size_t	src_len;
+	size_t	dest_len;
 
 	i = 0;
-	while (dest[i] != '\0' && i < size)
-		i++;
-	j = 0;
-	while (src[j] != '\0' && (i + j + 1) < size)
+	src_len = ft_strlen(src);
+	dest_len = ft_strlen(dest);
+	if (size <= dest_len)
+		return (src_len + size);
+	while (src[i] && i < size - dest_len - 1)
 	{
-		dest[i + j] = src[j];
-		j++;
+		dest[dest_len + i] = src[i];
+		i++;
 	}
-	if (i < size)
-		dest[i + j] = '\0';
-	return (i + ft_strlen(src));
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }

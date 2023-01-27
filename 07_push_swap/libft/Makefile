@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: yoson <yoson@student.42seoul.kr>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/10 18:10:46 by yoson             #+#    #+#              #
-#    Updated: 2022/07/15 22:06:09 by yoson            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-NAME = libft.a
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror
+NAME = libft.a
 BSRCS = ft_lstnew.c \
        ft_lstadd_front.c \
        ft_lstsize.c \
@@ -30,22 +18,22 @@ SRCS = ft_memcmp.c ft_memmove.c ft_bzero.c ft_memchr.c ft_memcpy.c \
        ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
        ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 OBJS = $(SRCS:%.c=%.o)
-BOBJS = $(BSRCS:%.c=%.o)
+BONUSOBJS = $(BSRCS:%.c=%.o)
 ifdef WITH_BONUS
-    OBJ_FILES = $(OBJS) $(BOBJS)
+    OBJ_FILES = $(OBJS) $(BONUSOBJS)
 else
     OBJ_FILES = $(OBJS)
 endif
 
 all : $(NAME)
 %.o : %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAG) -c $< -o $@
 $(NAME) : $(OBJ_FILES)
 	ar rcs $@ $^
 bonus :
 	make WITH_BONUS=1 all
 clean : 
-	rm -f $(OBJS) $(BOBJS)
+	rm -f $(OBJS) $(BONUSOBJS)
 fclean : clean
 	rm -f $(NAME)
 re : fclean all

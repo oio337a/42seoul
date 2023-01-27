@@ -3,34 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42.fr>                +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 00:43:10 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/11 18:35:33 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/09 16:03:01 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/11/23 14:28:37 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
-
-static int	check_over_range(unsigned long long num, int sign)
-{
-	if (num > (unsigned long long)LONG_MAX + 1 && sign == -1)
-		return (0);
-	if (num > LONG_MAX && sign == 1)
-		return (-1);
-	return (num * sign);
-}
 
 int	ft_atoi(const char *str)
 {
-	int					sign;
-	unsigned long long	num;
-	int					i;
+	int	result;
+	int	sign;
 
 	sign = 1;
-	num = 0;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
+	result = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -38,14 +27,10 @@ int	ft_atoi(const char *str)
 			sign *= -1;
 		str++;
 	}
-	while (*str == '0')
-		str++;
-	i = 0;
-	while (str[i] >= '0' && str[i] <= '9' && i < 19)
+	while (*str >= '0' && *str <= '9')
 	{
-		num *= 10;
-		num += str[i] - '0';
-		i++;
+		result = result * 10 + (*str - '0');
+		str++;
 	}
-	return (check_over_range(num, sign));
+	return (result * sign);
 }

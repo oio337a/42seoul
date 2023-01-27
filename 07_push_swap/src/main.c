@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sohyupar <sohyupar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:07:26 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/24 16:53:35 by sohyupar         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:29:14 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	count_argu(int ac, char *av[])
 		ft_free(numbers);
 	}
 	if (len == 1)
-		exit(error());
+		exit(0);
 	return (len);
 }
 
@@ -74,10 +74,8 @@ static void	last_sort(t_deque *a_stack)
 		if (a_stack->data[find_idx(a_stack->front + 1 + i, a_stack->len)] == 1)
 			break ;
 	if (i > a_stack->len / 2)
-	{
 		while (a_stack->data[find_idx(a_stack->front + 1, a_stack->len)] != 1)
 			rra(a_stack);
-	}
 	else
 		while (a_stack->data[find_idx(a_stack->front + 1, a_stack->len)] != 1)
 			ra(a_stack);
@@ -92,6 +90,8 @@ int	main(int ac, char *av[])
 	if (ac < 2)
 		return (1);
 	len = count_argu(ac, av);
+	if (len < ac - 1)
+		exit(error());
 	a_stack = init(len + 1);
 	fill_stack(ac, av, a_stack);
 	check_duplication(a_stack);

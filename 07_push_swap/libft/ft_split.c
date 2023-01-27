@@ -3,86 +3,78 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42.fr>                +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 15:15:57 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/11 19:12:19 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/15 14:12:04 by suhwpark          #+#    #+#             */
+/*   Updated: 2023/01/11 19:30:10 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-static int	is_word(char c, char sep)
+static int	is_word(char word, char c)
 {
-	if (c == sep)
+	if (word == c)
 		return (0);
 	else
 		return (1);
 }
 
-static size_t	find_size(const char *str, char sep)
+static size_t	get_size(const char *s, char c)
 {
-	size_t	size;
+	size_t	count;
 
-	size = 0;
-	while (*str)
+	count = 0;
+	while (*s)
 	{
-		if (is_word(*str, sep))
+		if (is_word(*s, c))
 		{
-			size++;
-			while (*str != '\0' && is_word(*str, sep))
-				str++;
+			count++;
+			while (*s && is_word(*s, c))
+				s++;
 		}
 		else
-			str++;
+			s++;
 	}
-	return (size);
+	return (count);
 }
 
-static char	**free_all(char **str_arr)
+static char	**all_free(char **res)
 {
 	size_t	i;
 
 	i = 0;
-	while (str_arr[i])
-		free(str_arr[i++]);
-	free(str_arr);
-	return (NULL);
+	while (res[i])
+		free(res[i++]);
+	free(res);
+	return (0);
 }
 
-static char	**split(char **str_arr, char const *str, char sep)
+char	**ft_split(const char *s, char c)
 {
-	const char	*tmp;	
+	char		**res;
+	const char	*tmp;
 	size_t		i;
 
 	i = 0;
-	while (*str)
+	res = (char **)malloc(sizeof(char *) * (get_size(s, c) + 1));
+	if (!res)
+		return (0);
+	while (*s)
 	{
-		if (is_word(*str, sep))
+		if (is_word(*s, c))
 		{
-			tmp = str;
-			while (*str && is_word(*str, sep))
-				str++;
-			str_arr[i] = (char *)malloc(sizeof(char) * (str - tmp + 1));
-			if (!str_arr[i])
-				return (free_all(str_arr));
-			ft_strlcpy(str_arr[i++], tmp, str - tmp + 1);
+			tmp = s;
+			while (*s && is_word(*s, c))
+				s++;
+			res[i] = (char *)malloc(sizeof(char) * (s - tmp + 1));
+			if (!res[i])
+				return (all_free(res));
+			ft_strlcpy(res[i++], tmp, (s - tmp + 1));
 		}
 		else
-			str++;
+			s++;
 	}
-	str_arr[i] = NULL;
-	return (str_arr);
-}
-
-char	**ft_split(char const *str, char sep)
-{
-	char		**ret;
-
-	ret = (char **)malloc(sizeof(char *) * (find_size(str, sep) + 1));
-	if (!ret)
-		return (NULL);
-	ret = split(ret, str, sep);
-	return (ret);
+	res[i] = 0;
+	return (res);
 }

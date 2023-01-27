@@ -3,35 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoson <yoson@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:21:01 by yoson             #+#    #+#             */
-/*   Updated: 2022/10/11 05:43:20 by yoson            ###   ########.fr       */
+/*   Created: 2022/11/15 16:59:01 by suhwpark          #+#    #+#             */
+/*   Updated: 2022/12/04 16:09:51 by suhwpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_substr(char const *src, unsigned int start, size_t len)
 {
-	char	*str;
+	char	*res;
 	size_t	i;
 
-	if (ft_strlen(src) <= start)
+	i = 0;
+	if (!len || ft_strlen(src) <= start)
 		return (ft_strdup(""));
 	if (ft_strlen(src) < start + len)
-		len = ft_strlen(src) - start;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	src += start;
-	i = 0;
-	while (src[i] && len--)
+		len = ft_strlen(src) - start + 1;
+	res = (char *)malloc(len + 1);
+	if (!res)
+		return (0);
+	src = src + start;
+	while (i < len && src[i])
 	{
-		str[i] = src[i];
+		res[i] = src[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	res[i] = '\0';
+	return (res);
 }
