@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_reverse_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:11:52 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 12:36:12 by suhwpark         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:41:59 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 

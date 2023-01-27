@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:34:50 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 12:36:08 by suhwpark         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:41:55 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:45:10 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 12:35:59 by suhwpark         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:41:52 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 

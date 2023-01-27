@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_algorithm1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suhwpark <suhwpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yongmipa <yongmipa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:44:29 by sohyupar          #+#    #+#             */
-/*   Updated: 2023/01/25 13:28:35 by suhwpark         ###   ########.fr       */
+/*   Updated: 2023/01/27 16:42:14 by yongmipa         ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
