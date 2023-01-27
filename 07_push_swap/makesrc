@@ -1,0 +1,4 @@
+SRC			=	command_push.c commend_reverse_rotate.c command_rotate.c command_swap.c error.c get_pivot.c greedy_algorithm.c main.c push_atoi.c que_data.c que_set.c validation.c
+
+컴파일 하실 때 원하 시는 파일만 넣으셔서 make 하시면 됩니다. 
+만약에 파일이 추가 되면 저기에 넣어주세요.
