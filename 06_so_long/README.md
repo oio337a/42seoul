@@ -1,4 +1,6 @@
 # so_long 구현
+<img width="834" alt="Screen Shot 2023-01-31 at 10 27 24 PM" src="https://user-images.githubusercontent.com/75519420/215773547-58805620-7b25-4e09-bb05-a7d557cfa7e8.png">
+
 ---
 
 이 과제는 miniLibX를 사용하여 최소한의 움직임으로 모든 수집품을 모으고 탈출하는 2d게임을 만드는 것이 목표입니다.
