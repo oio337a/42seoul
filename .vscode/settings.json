@@ -2,6 +2,9 @@
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
 		"server.h": "c",
-		"stdlib.h": "c"
-	}
+		"stdlib.h": "c",
+		"so_long.h": "c",
+		"stdio.h": "c"
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
