@@ -8,3 +8,5 @@
 5. [05_minitalk](https://github.com/oio337a/42seoul/tree/master/05_minitalk) : IPC 프로세스간 통신, SIGNAL, SIGACTION, 두가지 시그널(SIGUSR1, SIGUSR2)만을 사용하여 메세지 전달하기
 6. [06_so_long](https://github.com/oio337a/42seoul/tree/master/06_so_long) : 42seoul의 첫 그래픽 과제.
 7. [07_push_swap](https://github.com/oio337a/42seoul/tree/master/07_push_swap) : 연결리스트 2개를 사용하여 제한된 동작으로 정렬하기.
+8. [08_minishell](https://github.com/oio337a/42seoul/tree/master/08_minishell) : 나만의 작은 shell 만들기.
+9. [09_philosophers](https://github.com/oio337a/42seoul/tree/master/09_philosophers) : 스파게티 먹는 철학자, 스레드 (뮤텍스와, 세마포어, 데드락, 기아현상) 이해하기.
